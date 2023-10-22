@@ -7,10 +7,14 @@ const flightController = require('../controllers/flights')
 
 /* =======================
 /*  Define routes
-// 🌭❗🌭❗🌭❗🌭❗🌭❗🌭❗🌭❗🌭❗🌭❗🌭❗🌭❗🌭❗
-All routes start with '/hotdogflights')
+All routes start with '/flights')
 /* =====================*/
+
+// GET /flights (index for all)
+router.get('/', flightController.index)
 
 // GET /flights/new
 router.get('/new', flightController.new);
 
+// POST /flights (add a new movie)
+router.post('/', flightController.create);

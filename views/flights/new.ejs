@@ -1,25 +1,35 @@
 <%- include('../partials/header') %>
 
-<h2>Please enter the flight info</h2>
+<h2>Please enter your flight info</h2>
 
 <form action="/flights" method="POST">
   <!-- airline -->
   <label>Name of Airline:
     <select name="airline">
-
-      <!-- <input type="select" name="airline"> -->
+      <option value="null" selected></option>
       <option value="Lufthansa">Lufthansa</option>
       <option value="Emirates">Emirates</option>
       <option value="Northeast">Northeast</option>
     </select>
-
   </label>
-
   <!-- airport -->
-
+  <label>Departure Airport:
+    <select name="airport">
+      <option value="ATL">ATL</option>
+      <option selected value="DEN">DEN</option>
+      <option value="JFK">JFK</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
+  </label>
   <!-- flightNo -->
-
+  <label>Flight Number:
+    <input type="number" min="10" max="9999" step="1" required name="flightNo">
+  </label>
   <!-- departsAt -->
+  <label>Departure Date and Time:
+    <input type="datetime-local" required name="departsAt">
+  </label>
+  <button type="submit">Add your flight</button>
 </form>
-
 <%- include('../partials/footer') %>

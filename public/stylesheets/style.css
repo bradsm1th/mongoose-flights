@@ -1,8 +1,52 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Ubuntu", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  width: 50ch;
+}
+
+form>label {
+  /* display: block; */
+  /* border: 1px solid blue; */
+
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  margin-block-start: 2em;
+  padding: .7em;
+  width: 62%;
+  margin: 0 auto;
+  font-family: inherit;
+}
+
+button:hover {
+  transition: all .1s ease-in-out;
+  background: cadetblue;
+  color: white;
+  box-shadow: 1px 1px 3px 0px purple;
+}
+
+table {
+  display: flex;
+  border: 1px solid blue;
+  border-collapse: collapse;
+}
+tr > th {
+  /* text-align: left; */
+}
+tr {
+  border: 1px solid blue;
+
+}
+
