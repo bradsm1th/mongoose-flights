@@ -1,10 +1,23 @@
 body {
   padding: 50px;
   font: 14px "Ubuntu", Helvetica, Arial, sans-serif;
+
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 a {
   color: #00B7FF;
+}
+
+nav {
+  display: flex;
+  letter-spacing: .05em;
+  gap: .7em;
+  margin-block-end: 1em;
 }
 
 form {
@@ -15,9 +28,6 @@ form {
 }
 
 form>label {
-  /* display: block; */
-  /* border: 1px solid blue; */
-
   display: flex;
   justify-content: space-between;
 }
@@ -38,15 +48,49 @@ button:hover {
 }
 
 table {
-  display: flex;
-  border: 1px solid blue;
+  margin: 0 auto;
   border-collapse: collapse;
 }
-tr > th {
-  /* text-align: left; */
-}
+
 tr {
-  border: 1px solid blue;
-
+  display: flex;
 }
 
+tr:first-child {
+  border-block-end: .1em solid black;
+}
+
+tr>* {
+  margin-inline: 1em;
+  padding: .5em;
+  flex: 1;
+}
+
+th:nth-child(2n+3) {
+  flex: 2;
+}
+
+tr>*:last-child {
+  flex: 5;
+}
+
+th {
+  text-align: left;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 50vmin;
+
+  /* border: 1px solid red; */
+
+  font-size: smaller;
+  margin: auto;
+
+  position: absolute;
+  bottom: 1em;
+  margin-block-start: auto;
+  border-block-start: 2px solid grey;
+}
