@@ -1,7 +1,17 @@
 // define model
 const mongoose = require('mongoose');
 
-// define schema
+
+// define embedded/subdoc Schema
+const destinationSchema = new mongoose.Schema({
+  airport: {
+    type: String,
+    enum: ['ATL', 'DEN', 'JFK', 'LAX', 'SAN'],
+  },
+  arrival: Date
+})
+
+// define main/parent Schema
 const flightsSchema = new mongoose.Schema({
   airline: {
     type: String,
