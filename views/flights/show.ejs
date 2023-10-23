@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+  <h2>Everything you always wanted to know about flight <mark>
+      <%= flight.flightNo%>
+    </mark> but were too ashamed to ask…</h2>
+
+  <dl>
+    <dt>Airline:</dt>
+    <dd>
+      <%= flight.airline %>
+    </dd>
+    <dt>Airpot:</dt>
+    <dd>
+      <%= flight.airport %>
+    </dd>
+    <dt>Flight Number:</dt>
+    <dd>
+      <%= flight.flightNo %> <em><small>(but you already knew that, didn't you?)</small></em>
+    </dd>
+    <dt>Departure Time:</dt>
+    <dd>
+      <%= flight.departsAt.toLocaleString() %>
+    </dd>
+  </dl>
+
+  <%- include('../partials/footer') %>

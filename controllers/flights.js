@@ -6,6 +6,7 @@ module.exports = {
   create,
   index,
   new: newFlight,
+  show
 }
 
 /* =======================
@@ -50,7 +51,25 @@ async function index(req, res, next) {
   }
 }
 
+
 // enter a new flight
 function newFlight(req, res, next) {
   res.render('flights/new')
+}
+
+// show details for one flight
+async function show(req, res, next) {
+  console.log("Hello from show()!");
+  try {
+    // map the form ID to the right document in the model
+    console.log(req.params.id);
+    const thisFlightDoc = await FlightModel.findById(req.params.id);
+    console.log(thisFlightDoc);
+    // cool that worked—now render the view
+    res.render('flights/show', flight = thisFlightDoc);
+  } catch(err){
+    console.log(err);
+    res.send(err);
+  }
+
 }

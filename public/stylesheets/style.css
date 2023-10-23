@@ -47,32 +47,32 @@ button:hover {
   box-shadow: 1px 1px 3px 0px purple;
 }
 
-table {
+/* table {
   margin: 0 auto;
   border-collapse: collapse;
-}
+} */
 
-tr {
+/* tr {
   display: flex;
-}
+} */
 
-tr:first-child {
+/* tr:first-child {
   border-block-end: .1em solid black;
-}
+} */
 
-tr>* {
+/* tr>* {
   margin-inline: 1em;
   padding: .5em;
   flex: 1;
-}
+} */
 
-th:nth-child(2n+3) {
+/* th:nth-child(2n+3) {
   flex: 2;
-}
+} */
 
-tr>*:last-child {
+/* tr>*:last-child {
   flex: 5;
-}
+} */
 
 th {
   text-align: left;

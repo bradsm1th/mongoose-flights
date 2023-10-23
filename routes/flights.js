@@ -16,5 +16,8 @@ router.get('/', flightController.index)
 // GET /flights/new
 router.get('/new', flightController.new);
 
+// GET /flights/:id
+router.get('/:id', flightController.show);
+
 // POST /flights (add a new movie)
 router.post('/', flightController.create);
