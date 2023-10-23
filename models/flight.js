@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // define schema
-const flightsSchema = new mongoose.Schema( {
+const flightsSchema = new mongoose.Schema({
   airline: {
     type: String,
     enum: ['Lufthansa', 'Emirates', 'Northeast']
@@ -20,7 +20,12 @@ const flightsSchema = new mongoose.Schema( {
   },
   departsAt: {
     type: Date,
-    default: new Date()
+    // set default to "a year from today"
+    // …set default to a function instead of a date object
+    // ……return whatever the math is (Date.now + (1000ms * 60s * 60min * 24h * 365d))
+    default: function () {
+      return new Date(Date.now() + (1000 * 60 * 60 * 24 * 365))
+    }
   }
 }, {
   timestamps: true

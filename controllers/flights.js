@@ -20,6 +20,12 @@ async function create(req, res, next) {
   // convert flightNo to an integer since it is submitted as a string
   req.body.flightNo = parseInt(req.body.flightNo)
 
+  // assign default time (1 year from now) if not specified by user
+  // console.log(('' === req.body.departsAt), "<----- departsAt is empty string aka not provided");
+  if (req.body.departsAt === '') {
+    delete req.body.departsAt;
+  }
+
   try {
     // add the flight to the DB
     const flightDoc = await FlightModel.create(req.body);

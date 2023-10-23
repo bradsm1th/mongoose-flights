@@ -79,18 +79,5 @@ th {
 }
 
 footer {
-  display: flex;
-  justify-content: center;
-  align-self: center;
-  width: 50vmin;
-
-  /* border: 1px solid red; */
-
   font-size: smaller;
-  margin: auto;
-
-  position: absolute;
-  bottom: 1em;
-  margin-block-start: auto;
-  border-block-start: 2px solid grey;
 }
