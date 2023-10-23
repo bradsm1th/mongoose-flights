@@ -36,7 +36,8 @@ const flightsSchema = new mongoose.Schema({
     default: function () {
       return new Date(Date.now() + (1000 * 60 * 60 * 24 * 365))
     }
-  }
+  },
+  destinations: [destinationSchema];
 }, {
   timestamps: true
 });
