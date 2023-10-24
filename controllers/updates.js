@@ -19,7 +19,7 @@ async function create(req, res, next) {
     await flightDoc.save();
     res.redirect(`/flights/${flightDoc._id}`);
     } catch (error) {
-    console.log(err);
-    res.send(err);
+    console.log(error);
+    res.send(error);
   }
 }

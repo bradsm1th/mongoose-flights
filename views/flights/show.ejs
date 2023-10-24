@@ -1,14 +1,15 @@
 <%- include('../partials/header') %>
 
   <h2>Everything you always wanted to know about flight <mark>
-    <%= flight.flightNo%></mark> <small>(but were too ashamed to ask…)</small></h2>
-    
+      <%= flight.flightNo%>
+    </mark> <small>(but were too ashamed to ask…)</small></h2>
+
   <dl>
     <dt>Airline:</dt>
     <dd>
       <%= flight.airline %>
     </dd>
-    <dt>Airport:</dt>
+    <dt>Departing Airport:</dt>
     <dd>
       <%= flight.airport %>
     </dd>
@@ -20,8 +21,22 @@
     <dd>
       <%= flight.departsAt.toLocaleString() %>
     </dd>
+    </dd>
+    <!-- only show if there's a value -->
+    <% if (flight.destinations.length) { %>
+      <dt>Arrival Time:</dt>
+      <dd>
+        <%= flight.destinations[0].arrival.toLocaleString() %>
+      </dd>
+    </dd>
+    <dt>Arrival Airport:</dt>
+    <dd>
+        <%= flight.destinations[0].airport %>
+      </dd>
+    <%}%>
   </dl>
-  <h3>Want to add your arrival info?</h3>
+
+  <h3>Want to add or update your arrival info?</h3>
   <form method="POST" action="/flights/<%= flight._id%>/updates">
     <label for="">Arrival Airport:
       <select name="airport">
