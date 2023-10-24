@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
 
   <h2>Everything you always wanted to know about flight <mark>
-      <%= flight.flightNo%></mark> but were too ashamed to ask…</h2>
-
+    <%= flight.flightNo%></mark> <small>(but were too ashamed to ask…)</small></h2>
+    
   <dl>
     <dt>Airline:</dt>
     <dd>
@@ -21,5 +21,25 @@
       <%= flight.departsAt.toLocaleString() %>
     </dd>
   </dl>
+  <h3>Want to add your arrival info?</h3>
+  <form method="POST" action="/flights/<%= flight._id%>/updates">
+    <label for="">Arrival Airport:
+      <select name="airport">
+        <option value=""></option>
+        <option value="ATL">ATL</option>
+        <option value="DEN">DEN</option>
+        <option value="JFK">JFK</option>
+        <option value="LAX">LAX</option>
+        <option value="SAN">SAN</option>
+      </select>
+    </label>
+    <label for="">Arrival Date/Time:
+      <input type="datetime-local" name="arrival">
+    </label>
+    <button type="submit">Update your flight info</button>
+
+
+  </form>
+
 
   <%- include('../partials/footer') %>
