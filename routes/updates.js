@@ -2,12 +2,12 @@ const express = require('express');
 const router = express.Router();
 
 // grab the controller
-const updatesController = require('../controllers/updates');
+const destinationsController = require('../controllers/destinations');
 
 // define the route(s)
 
-// POST /flights/:id/updates
-router.post('/flights/:id/updates', updatesController.create);
+// POST /flights/:id/destinations
+router.post('/flights/:id/destinations', destinationsController.create);
 
 module.exports = router;
 
