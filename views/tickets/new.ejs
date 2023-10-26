@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+
+<h1>👋 from tickets/new</h1>
+
+
+<!-- 🧐  -->
+<!-- …"flight" comes from an object 
+      which was passed in here from a controller 
+      which gets the "_id" for the flight from the Flight model
+    
+    soooo, I need to update the controller to send that in to here
+    -->
+
+<form action="/flights/<%= idOfFlight %>/tickets" method="POST">
+  <label><strong>Seat</strong> <small>(A1–F99)</small>:</label>
+  <input name="seat" pattern="[A-F][1-9]\d?">
+
+  <label><strong>Price</strong> <small>(USD)</small>:</label>
+  <input name="price" type="number" min="0">
+
+  <button type="submit">Add ticket to this flight</button>
+</form>
+
+<p>Flight ID: <%= idOfFlight %></p>
+
+<%- include('../partials/footer') %>

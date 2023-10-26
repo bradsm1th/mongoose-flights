@@ -12,7 +12,7 @@ const destinationSchema = new mongoose.Schema({
 })
 
 // define main/parent Schema
-const flightsSchema = new mongoose.Schema({
+const flightSchema = new mongoose.Schema({
   airline: {
     type: String,
     enum: ['Lufthansa', 'Emirates', 'Northeast']
@@ -37,12 +37,12 @@ const flightsSchema = new mongoose.Schema({
       return new Date(Date.now() + (1000 * 60 * 60 * 24 * 365))
     }
   },
-  destinations: [destinationSchema]
+  destinations: [destinationSchema],
 }, {
   timestamps: true
 });
 
 // compile schema and export into model
-module.exports = mongoose.model('Flight', flightsSchema);
+module.exports = mongoose.model('Flight', flightSchema);
 
-// go use model in controller
+// …now go forth and use model in controller

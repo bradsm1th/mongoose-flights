@@ -9,52 +9,75 @@
     <dd>
       <%= flight.airline %>
     </dd>
+  </dl>
+
+  <dl>
     <dt>Departing Airport:</dt>
     <dd>
       <%= flight.airport %>
     </dd>
+  </dl>
+
+  <dl>
     <dt>Flight Number:</dt>
     <dd>
-      <%= flight.flightNo %> <em><small>(but you already knew that, didn't you?)</small></em>
+      <%= flight.flightNo %> <em><small>(but we already knew that, didn't we?)</small></em>
     </dd>
+  </dl>
+
+  <dl>
     <dt>Departure Time:</dt>
     <dd>
       <%= flight.departsAt.toLocaleString() %>
     </dd>
-    </dd>
-    <!-- only show if there's a value -->
+  </dl>
+
+  <!-- only show if there's a value -->
+  <dl>
     <% if (flight.destinations.length) { %>
       <dt>Arrival Time:</dt>
       <dd>
         <%= flight.destinations[0].arrival.toLocaleString() %>
       </dd>
-    </dd>
-    <dt>Arrival Airport:</dt>
-    <dd>
-        <%= flight.destinations[0].airport %>
-      </dd>
-    <%}%>
   </dl>
+  <dl>
+    <dt>Arrival Airports:</dt>
+    <dd>
+      <%= flight.destinations[0].airport %>
+    </dd>
+  </dl>
+  <% } %>
 
-  <h3>Want to add or update your arrival info?</h3>
-  <form method="POST" action="/flights/<%= flight._id%>/destinations">
-    <label for="">Arrival Airport:
-      <select name="airport">
-        <option value=""></option>
-        <option value="ATL">ATL</option>
-        <option value="DEN">DEN</option>
-        <option value="JFK">JFK</option>
-        <option value="LAX">LAX</option>
-        <option value="SAN">SAN</option>
-      </select>
-    </label>
-    <label for="">Arrival Date/Time:
-      <input type="datetime-local" name="arrival">
-    </label>
-    <button type="submit">Update your flight info</button>
+    <dl>
+      <!-- view tickets for this flight -->
+      <dt>Tickets for this flight:</dt>
+      <dd>
+        <% if (!tickets.length) { %>
+          <small><mark>THIS FLIGHT IS ENTIRELY WITHOUT TICKETS</mark></small>
+          <% } else { %>
+            <%- tickets %>
+              <% } %>
+      </dd>
+    </dl>
 
+    <h3>Want to add your arrival info?</h3>
+    <form method="POST" action="/flights/<%= flight._id%>/destinations">
+      <label for="">Arrival Airport:
+        <select name="airport">
+          <option value=""></option>
+          <option value="ATL">ATL</option>
+          <option value="DEN">DEN</option>
+          <option value="JFK">JFK</option>
+          <option value="LAX">LAX</option>
+          <option value="SAN">SAN</option>
+        </select>
+      </label>
+      <label for="">Arrival Date/Time:
+        <input type="datetime-local" name="arrival">
+      </label>
+      <button type="submit">Add your flight info</button>
+    </form>
 
-  </form>
+    <p>Have an existing ticket for this flight? <a href="/flights/<%= flight._id%>/tickets/new">Add it</a>!</p>
 
-
-  <%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>

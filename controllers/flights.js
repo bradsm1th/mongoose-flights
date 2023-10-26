@@ -1,5 +1,6 @@
-// grab the model
+// grab the models I'll need
 const FlightModel = require('../models/flight');
+const TicketModel = require('../models/ticket');
 
 // exports
 module.exports = {
@@ -45,7 +46,9 @@ async function index(req, res, next) {
     res.render('flights/index', {
       flights: flightDocs
     })
+    console.log(">>>>>FLIGHT DOCS>>>>>");
     console.log(flightDocs);
+    console.log("<<<<<FLIGHT DOCS<<<<<<");
   } catch (err) {
     res.send(err);
   }
@@ -59,14 +62,22 @@ function newFlight(req, res, next) {
 
 // show details for one flight
 async function show(req, res, next) {
-  console.log("Hello from show()!");
   try {
     // map the form ID to the right document in the model
-    console.log(req.params.id);
     const thisFlightDoc = await FlightModel.findById(req.params.id);
     console.log(thisFlightDoc);
+
+
+    // grab tickets whose value for 'flight' === Flight.xxx._id
+    const thisFlightTicketsDoc = await TicketModel.find({flight: thisFlightDoc._id});
+
+    console.log(thisFlightTicketsDoc, "<---------- tickets for this flight");
+
     // cool that worked—now render the view
-    res.render('flights/show', flight = thisFlightDoc);
+    res.render('flights/show', {
+      flight: thisFlightDoc,
+      tickets: thisFlightTicketsDoc
+    });
   } catch(err){
     console.log(err);
     res.send(err);
