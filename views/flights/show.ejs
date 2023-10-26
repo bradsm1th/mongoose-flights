@@ -35,16 +35,21 @@
   <!-- only show if there's a value -->
   <dl>
     <% if (flight.destinations.length) { %>
-      <dt>Arrival Time:</dt>
-      <dd>
-        <%= flight.destinations[0].arrival.toLocaleString() %>
-      </dd>
+
+   
+
+        <dt>Arrival Time:</dt>
+        <dd>
+          <%= flight.destinations[0].arrival.toLocaleString() %>
+        </dd>
   </dl>
   <dl>
     <dt>Arrival Airports:</dt>
     <dd>
       <%= flight.destinations[0].airport %>
     </dd>
+
+
   </dl>
   <% } %>
 

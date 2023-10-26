@@ -23,7 +23,6 @@ async function create(req, res, next) {
   req.body.flightNo = parseInt(req.body.flightNo)
 
   // assign default time (1 year from now) if not specified by user
-  // console.log(('' === req.body.departsAt), "<----- departsAt is empty string aka not provided");
   if (req.body.departsAt === '') {
     delete req.body.departsAt;
   }
@@ -65,7 +64,7 @@ async function show(req, res, next) {
   try {
     // map the form ID to the right document in the model
     const thisFlightDoc = await FlightModel.findById(req.params.id);
-    console.log(thisFlightDoc);
+    // console.log(thisFlightDoc);
 
 
     // grab tickets whose value for 'flight' === Flight.xxx._id

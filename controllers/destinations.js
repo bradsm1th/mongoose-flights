@@ -15,7 +15,7 @@ async function create(req, res, next) {
     const flightDoc = await FlightModel.findById(req.params.id);
     // add submitted update info to destinations
     flightDoc.destinations.push(req.body);
-    console.log(flightDoc, '<--- flightDoc');
+    // console.log(flightDoc, '<--- flightDoc');
     await flightDoc.save();
     res.redirect(`/flights/${flightDoc._id}`);
     } catch (error) {

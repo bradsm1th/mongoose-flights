@@ -15,9 +15,19 @@ new: newTicket
 async function addTicket(req, res, next) {
 
   try {
-    console.log(req.params, "<-_-_-_-_- req.params")
+    // req.body   === the seat and price info
+    console.log(req.body, "<--- req.body");
+    // req.params === the flight's _id
+    console.log(req.params, "<---req.params");
+
     // get the _id of the flight from the Flight model
-    // const theIdIWant = await FlightModel.find({_id: req.params.idOfFlight})
+
+    // add that flight (the ID, not the actual object) to the ticket
+
+    // TicketModel.something.push(something)
+
+    // redirect to that show page
+    res.redirect(`/flights/${req.params.idOfFlight}`)
 
   } catch (err) {
     console.log(err);
@@ -25,24 +35,16 @@ async function addTicket(req, res, next) {
     
   }
   
-    // req.params === the flight's _id
-    console.log(req.params, "<--------params")
-    
-    // req.body   === the seat and price info
-    console.log(req.body, "<--------body")
-
-
-    res.render("", )
 }
 
 
 /* 💡❗💡❗💡❗💡❗💡❗💡❗💡❗💡❗💡❗ */
-// point: SHOW the new ticket form. NOT "create new ticket"
+// what's the point of this function? -> SHOW the new ticket form. NOT "create new ticket"
 /* 💡❗💡❗💡❗💡❗💡❗💡❗💡❗💡❗💡❗ */
 
-// what did user just do?     click submit off show page
-// what is request?           GET /flights/<an id>/tickets/new
-// what *should* response be? render that view
+// what did user just do?       click submit off show page
+// what is request?             GET /flights/<an id>/tickets/new
+// what *should* response be?   render that view
 
 function newTicket(req, res, next) {
 
